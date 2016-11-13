@@ -71,10 +71,12 @@ app.post('/Add_Donation',function(request,response){
 	var transferedDate=new Date(request.body.transferedDate).getTime();
 	var donatedDate=new Date(request.body.donatedDate).getTime();
 	var remarks=request.body.addRemarks;
-	
+	var email=request.body.email;
+
 	db.collection('Donations').insertOne( {
 		"name" : name,
 		"mobileNumber" : mobileNumber,
+		"email" : email,
 		"amount" : amount,
 		"transferedDate" : transferedDate,
 		"donatedDate" : donatedDate,
