@@ -169,9 +169,14 @@ app.post('/Add_Donation',function(request,response){
 	var donatedDate=new Date(request.body.donatedDate).getTime();
 	var remarks=request.body.addRemarks;
 
+
+	var email=request.body.addEmail;
+
+
 	db.collection('Donations').insertOne( {
 		"name" : name,
 		"mobileNumber" : mobileNumber,
+		"email" : email,
 		"amount" : amount,
 		"transferedDate" : transferedDate,
 		"donatedDate" : donatedDate,
