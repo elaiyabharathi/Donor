@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Surabi Trust</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Surabi Trust</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#add_donation">Add Donation</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#register">Register</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Retrive</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">Donor Resistration Portal</span>
+                        <hr class="star-light">
+                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Add donation -->
+    <section id="add_donation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Enter Donation Details</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+
+            <form class="form-horizontal" action="/Add_Donation" method="post">
+              <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="addName" placeholder="Name of the donor">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="amount" class="col-sm-2 control-label">Amount</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="addAmount" placeholder="Donation Amount">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="mobile" class="col-sm-2 control-label">Mobile Number</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="addMobileNumber" placeholder="Mobile Number">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="transferedDate" class="col-sm-2 control-label">Transfered Date</label>
+                <div class="col-sm-5">
+                  <input type="date" class="form-control" name="transferedDate">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="donatedDate" class="col-sm-2 control-label">Donation Date</label>
+                <div class="col-sm-5">
+                  <input type="date" class="form-control" name="donatedDate">
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="remarks" class="col-sm-2 control-label">Remarks</label>
+                  <div class="col-sm-5">
+                    <textarea class="form-control" rows="5" id="address" name="addRemarks"></textarea>
+                  </div>
+              </div>
+
+              <div class="form-group">
+              <label for="button" class="col-sm-2 control-label"></label>
+                <div class="col-sm-2">
+                  <button class="btn btn-primary form-control" type="submit">Add Donation</button>
+                </div>
+              </div>
+
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Register Grid Section -->
+
+    <section id="register">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Enter Donor details</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+
+            <form class="form-horizontal" action="/Register_Donor" method="post">
+              <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="regName" placeholder="Name of the donor">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">Gender</label>
+                <div class="col-sm-5">
+                    <label class="radio-inline">
+                      <input type="radio" name="regGender">Male
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="regGender">Female
+                    </label>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dob" class="col-sm-2 control-label">Date Of Birth</label>
+                <div class="col-sm-5">
+                  <input type="date" class="form-control" id="dob" name="regDateOfBirth">
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="address" class="col-sm-2 control-label">Address:</label>
+                  <div class="col-sm-5">
+                    <textarea class="form-control" rows="5" name="regAddress" id="regAddress"></textarea>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mobile" class="col-sm-2 control-label">Mobile Number</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="regMobileNumber" placeholder="Mobile Number">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-5">
+                  <input type="email" class="form-control" name="regEmailID" placeholder="Email">
+                </div>
+              </div>
+
+              <div class="form-group">
+              <label for="button" class="col-sm-2 control-label"></label>
+                <div class="col-sm-2">
+                  <button class="btn btn-primary form-control" type="submit">Register</button>
+                </div>
+              </div>
+
+            </form>
+        </div>
+    </section>
+
+
+
+    <!-- Report Section -->
+    <section id="about">
+        <div class="container" >
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Donation Report</h2>
+                    <hr class="star-light">
+                </div>
+
+
+                <div class="container">
+                  <h2>Reports</h2>
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#List Of">Home</a></li>
+                    <li><a data-toggle="tab" href="#menu1" text-color="white">Menu 1</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                      <h3>HOME</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                      <h3>Menu 1</h3>
+                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                      <h3>Menu 2</h3>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                      <h3>Menu 3</h3>
+                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+            
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>3481 Melrose Place
+                            <br>Beverly Hills, CA 90210</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>About Freelancer</h3>
+                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Your Website 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+    
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/freelancer.min.js"></script>
+
+
+    
+
+</body>
+
+</html>
