@@ -88,3 +88,34 @@ app.post('/Add_Donation',function(request,response){
 	response.redirect('/');
 });
 
+app.post('/Retrieve_Donations',function(request, response){
+
+	console.log("Retrieve_Donations Called");
+	
+	var minValue=request.body.;
+	var maxValue=request.body.;
+	var fromDate=new Date(request.body.).getTime();
+	var toDate=new Date(request.body.).getTime();
+	var name=request.body.;
+	var mobileNumber=request.body.;
+	var cause=request.body.;
+	
+	var queryJSON = {};
+	
+	if(minValue!="")
+		queryJSON.minValue.gte=minValue;
+	if(maxValue!="")
+		queryJSON.maxValue.lte=maxValue;
+	if(fromDate!=""&&fromDate!=NaN)
+		queryJSON.fromDate=fromDate;
+	if(toDate!=""&&toDate!=NaN)
+		queryJSON.toDate=toDate;
+	if(name!="")
+		queryJSON.name=name;
+	if(mobileNumber!="")
+		queryJSON.mobileNumber=mobileNumber;
+	if(cause!="")
+		queryJSON.cause=cause;
+		
+	console.log(queryJSON);
+});
