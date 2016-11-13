@@ -238,7 +238,7 @@
                   <h2>Reports</h2>
                   <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" href="#menu1" text-color="white">Donation Dashboard</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Donor Info Search</a></li>
                     <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
                   </ul>
 
@@ -304,8 +304,44 @@
                     </div>
 
                     <div id="menu2" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                      <section id="donorUserDashboard">
+                          <div class="container">
+
+                              <form class="form-horizontal" action="/fetchDonorUserReport" method="post">
+
+                                <div class="form-group">
+                                    <label for="queryCause" class="col-sm-2 control-label" style="float : left">Donor Name</label>
+                                    <div class="col-sm-3" style="float : left">
+                                      <input type="text" class="form-control" name="queryDonorName" placeholder="Donor Name">
+                                    </div>
+
+                                  <label for="queryMobileNumber" class="col-sm-2 control-label" style="float : left">Mobile Number</label>
+                                  <div class="col-sm-3" style="float : left">
+                                    <input type="text" class="form-control" name="queryMobileNumber" placeholder="Mobile Number">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="queryCause" class="col-sm-2 control-label" style="float : left">Donation Interest/Cause</label>
+                                    <div class="col-sm-3" style="float : left">
+                                      <input type="text" class="form-control" name="queryCause" placeholder="Donation Interest/Cause">
+                                    </div>
+
+                                    <label for="queryCause" class="col-sm-2 control-label" style="float : left">Email ID</label>
+                                    <div class="col-sm-3" style="float : left">
+                                      <input type="text" class="form-control" name="queryEmail" placeholder="Email ID">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                <label for="button" class="col-sm-2 control-label"></label>
+                                  <div class="col-sm-3">
+                                    <button class="btn btn-primary form-control" type="submit">Search</button>
+                                  </div>
+                                </div>
+
+                              </form>
+                          </div>
+                      </section>
                     </div>
                     <div id="menu3" class="tab-pane fade">
                       <h3>Menu 3</h3>
