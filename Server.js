@@ -92,13 +92,13 @@ app.post('/Retrieve_Donations',function(request, response){
 
 	console.log("Retrieve_Donations Called");
 	
-	var minValue=request.body.;
-	var maxValue=request.body.;
-	var fromDate=new Date(request.body.).getTime();
-	var toDate=new Date(request.body.).getTime();
-	var name=request.body.;
-	var mobileNumber=request.body.;
-	var cause=request.body.;
+	var minValue=request.body.queryMinAmount;
+	var maxValue=request.body.queryMaxAmount;
+	var fromDate=new Date(request.body.queryFromDate).getTime();
+	var toDate=new Date(request.body.queryToDate).getTime();
+	var name=request.body.queryDonorName;
+	var mobileNumber=request.body.queryMobileNumber;
+	var cause=request.body.queryCause;
 	
 	var queryJSON = {};
 	
@@ -116,6 +116,15 @@ app.post('/Retrieve_Donations',function(request, response){
 		queryJSON.mobileNumber=mobileNumber;
 	if(cause!="")
 		queryJSON.cause=cause;
-		
+	
 	console.log(queryJSON);
+	
+	db.collection('Donations', function(err, collection) {
+             collection.find().toArray(function(err, items) {
+                 console.log(items);
+                 //res.send(items);
+             });
+         });	
+		
+	reponse.write('/');
 });
