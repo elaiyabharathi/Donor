@@ -11,7 +11,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static('C:\\Users\\echinnasamy\\Desktop\\CRT Files\\Donor'));
+app.use(express.static('C:\\Users\\echinnasamy\\Desktop\\CRT Files\\Donor_App'));
 
 app.listen(8889);
 
@@ -88,9 +88,9 @@ app.post('/Add_Donation',function(request,response){
 	response.redirect('/');
 });
 
-app.post('/Retrieve_Donations',function(request, response){
+app.post('/fetchDonationReport',function(request, response){
 
-	console.log("Retrieve_Donations Called");
+	console.log("fetchDonationReport Called");
 	
 	var minValue=request.body.queryMinAmount;
 	var maxValue=request.body.queryMaxAmount;
@@ -102,14 +102,24 @@ app.post('/Retrieve_Donations',function(request, response){
 	
 	var queryJSON = {};
 	
-	if(minValue!="")
-		queryJSON.minValue.gte=minValue;
-	if(maxValue!="")
-		queryJSON.maxValue.lte=maxValue;
-	if(fromDate!=""&&fromDate!=NaN)
-		queryJSON.fromDate=fromDate;
-	if(toDate!=""&&toDate!=NaN)
-		queryJSON.toDate=toDate;
+	if(minValue!=""){
+		queryJSON.amount={};
+		queryJSON.amount.gte=minValue;
+	}
+	if(maxValue!=""){
+		if(maxValue==""||isNaN(maxValue))
+			queryJSON.amount={};
+		queryJSON.amount.lte=maxValue;
+	}	
+	if(fromDate!=""&&!isNaN(fromDate)){
+		queryJSON.donatedDate={};
+		queryJSON.donatedDate.gte=fromDate;
+	}
+	if(toDate!=""&&!isNaN(toDate)){
+		if(fromDate==""||isNaN(fromDate))
+			queryJSON.donateDate={};
+		queryJSON.donatedDate.lte=toDate;
+	}
 	if(name!="")
 		queryJSON.name=name;
 	if(mobileNumber!="")
@@ -120,11 +130,44 @@ app.post('/Retrieve_Donations',function(request, response){
 	console.log(queryJSON);
 	
 	db.collection('Donations', function(err, collection) {
-             collection.find().toArray(function(err, items) {
+             collection.find(queryJSON).toArray(function(err, items) {
                  console.log(items);
                  //res.send(items);
              });
          });	
 		
-	reponse.write('/');
+	response.redirect('/');
+});
+
+
+app.post('/fetchDonorUserReport',function(request, response){
+
+	console.log("fetchDonorUserReport Called");
+	
+	var name=request.body.queryDonorName;
+	var mobileNumber=request.body.queryMobileNumber;
+	var cause=request.body.queryCause;
+	var emailID=request.body.queryEmail;
+	
+	var queryJSON = {};
+	
+	if(name!="")
+		queryJSON.name=name;
+	if(mobileNumber!="")
+		queryJSON.mobileNumber=mobileNumber;
+	if(cause!="")
+		queryJSON.cause=cause;
+	if(emailID!="")
+		queryJSON.emailID=emailID;
+	
+	console.log(queryJSON);
+	
+	db.collection('Donors', function(err, collection) {
+             collection.find(queryJSON).toArray(function(err, items) {
+                 console.log(items);
+                 //res.send(items);
+             });
+         });	
+		
+	response.redirect('/');
 });
